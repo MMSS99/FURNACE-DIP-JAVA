@@ -71,7 +71,7 @@ public class WoodStove {
 
         }
 
-        System.out.println("You have used" + usedLogs + " logs.");
+        System.out.println("You have used " + usedLogs + " logs.");
         System.out.printf(Locale.US, "Your stove is burning at %.1fºC.", increasingTemp);
         System.out.println(" \n");
         return increasingTemp;
