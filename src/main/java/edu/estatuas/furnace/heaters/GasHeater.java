@@ -21,7 +21,7 @@ public class GasHeater {
         double increasingTemp = currentTemp;
         System.out.println("The heating up process is starting at " + increasingTemp + "ºC");
         while (increasingTemp < MAXTEMP){
-            increasingTemp += Math.round(((1d + Math.random()*2)*10)/10);;
+            increasingTemp += Math.round(((1d + Math.random()*2)*10))/10d;
             System.out.println("The temperature has increased to => " + increasingTemp + "ºC");
         }
         return increasingTemp;
@@ -36,7 +36,7 @@ public class GasHeater {
 
         System.out.println("The heating up process is starting at " + increasingTemp + "ºC");
         while (increasingTemp < desiredTemp && possible){
-            increasingTemp += Math.round(((1d + Math.random()*2)*10)/10);
+            increasingTemp += Math.round(((1d + Math.random()*2)*10))/10d;
             System.out.println("The temperature has increased to => " + increasingTemp + "ºC");
         }
         emissionWarning(currentTemp, desiredTemp);
