@@ -1,5 +1,6 @@
 package edu.estatuas.furnace.rooms;
 
+import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Room {
@@ -29,18 +30,26 @@ public class Room {
         double targetTemperature = ThreadLocalRandom.current().nextInt(0, 22);
         double currentTemperature = getTemperature();
 
-        while (currentTemperature < targetTemperature){
+        while (currentTemperature > targetTemperature){
             currentTemperature -= 1*(Math.random()+1);
-            System.out.println("The temperature has dropped to " + currentTemperature + "ºC");
+            System.out.printf(Locale.US, "The temperature has dropped to %.1fºC%n", currentTemperature);
         }
+
+        System.out.printf(Locale.US, "The room has stopped cooling off at %.1fºC", currentTemperature);
+        System.out.println("\n");
+        room.updateTemperature(currentTemperature);
     }
 
     public void coolOff(double targetTemperature){
         double currentTemperature = getTemperature();
 
-        while (currentTemperature < targetTemperature){
+        while (currentTemperature > targetTemperature){
             currentTemperature -= 1*(Math.random()+1);
-            System.out.println("The temperature has dropped to " + currentTemperature + "ºC");
+            System.out.printf(Locale.US, "The temperature has dropped to %.1fºC%n", currentTemperature);
         }
+
+        System.out.printf(Locale.US, "The room has stopped cooling off at %.1fºC", currentTemperature);
+        System.out.println("\n");
+        room.updateTemperature(currentTemperature);
     }
 }
