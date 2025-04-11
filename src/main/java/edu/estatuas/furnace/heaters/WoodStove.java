@@ -2,7 +2,7 @@ package edu.estatuas.furnace.heaters;
 
 import java.util.Locale;
 
-public class WoodStove {
+public class WoodStove implements Heater{
 
     private int woodLogs;
     private final double STOVE_RESISTANCE = 1538d;
@@ -21,6 +21,7 @@ public class WoodStove {
         System.out.println("You have chopped " + choppedLogs + " logs.");
     }
 
+    @Override
     public double heatUp(double currentTemp) {
         double increasingTemp = currentTemp;
 
@@ -49,6 +50,7 @@ public class WoodStove {
         return increasingTemp;
     }
 
+    @Override
     public double heatUp(double currentTemp, double desiredTemp) {
         double increasingTemp = currentTemp;
 

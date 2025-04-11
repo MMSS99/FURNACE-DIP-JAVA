@@ -2,7 +2,7 @@ package edu.estatuas.furnace.heaters;
 
 import java.util.Locale;
 
-public class GasHeater {
+public class GasHeater implements Heater {
 
     private final double MAXTEMP;
 
@@ -19,6 +19,7 @@ public class GasHeater {
         return MAXTEMP;
     }
 
+    @Override
     public double heatUp(double currentTemp){
         double increasingTemp = currentTemp;
         System.out.println("The heating up process is starting at " + increasingTemp + "ºC");
@@ -30,6 +31,7 @@ public class GasHeater {
         return increasingTemp;
     }
 
+    @Override
     public double heatUp(double currentTemp, double desiredTemp){
         boolean possible = false;
         double increasingTemp = currentTemp;
@@ -58,7 +60,7 @@ public class GasHeater {
         System.out.println("WARNING! The secret autodestruction method has been turned on!");
         int  i = 5;
         while (i > 0){
-            i = i--;
+            i--;
             System.out.println("Blowing up in " + i);
         }
         System.out.println("\n\n\n\n\nKABOOM!\n\n\n");
