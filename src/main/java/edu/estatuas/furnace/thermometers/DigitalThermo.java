@@ -37,7 +37,7 @@ public class DigitalThermo implements Thermometer {
             currentTemperature = temperature;
         }
 
-        if (currentTemperature >= MAX_TEMP) {
+        if (currentTemperature <= MAX_TEMP) {
             System.out.printf(Locale.US,"Current temperature: %.2fºC", currentTemperature);
         } else {
             System.out.println("ERROR: MAXIMUM TEMPERATURE EXCEEDED");
