@@ -1,16 +1,24 @@
 package edu.estatuas.furnace.heaters;
 
+import java.util.Locale;
+
 public class WoodStove {
 
     private int woodLogs;
-    private final double stoveResistance = 1538d;
+    private final double STOVE_RESISTANCE = 1538d;
 
     public WoodStove(){
-        woodLogs = 100000;
+        woodLogs = 0;
     }
 
     public WoodStove(int woodLogs) {
         this.woodLogs = woodLogs;
+    }
+
+    public void chopLogs(){
+        int choppedLogs = (int)Math.round(Math.random()*10);
+        this.woodLogs += choppedLogs;
+        System.out.println("You have chopped " + choppedLogs + " logs.");
     }
 
     public double heatUp(double currentTemp) {
@@ -27,7 +35,7 @@ public class WoodStove {
                 System.out.println("You have run out of logs!");
             }
 
-            if (increasingTemp > stoveResistance){
+            if (increasingTemp > STOVE_RESISTANCE){
                 stoveMolten = true;
                 System.out.println("Your stove is so hot that it's melting away!");
             }
@@ -35,7 +43,9 @@ public class WoodStove {
 
         }
 
-        System.out.println("You have used" + usedLogs + "logs.");
+        System.out.println("You have used " + usedLogs + " logs.");
+        System.out.printf(Locale.US, "Your stove is burning at %.1fºC.", increasingTemp);
+        System.out.println(" \n");
         return increasingTemp;
     }
 
@@ -53,7 +63,7 @@ public class WoodStove {
                 System.out.println("You have run out of logs!");
             }
 
-            if (increasingTemp > stoveResistance){
+            if (increasingTemp > STOVE_RESISTANCE){
                 stoveMolten = true;
                 System.out.println("Your stove is so hot that it's melting away!");
             }
@@ -61,7 +71,9 @@ public class WoodStove {
 
         }
 
-        System.out.println("You have used" + usedLogs + "logs.");
+        System.out.println("You have used" + usedLogs + " logs.");
+        System.out.printf(Locale.US, "Your stove is burning at %.1fºC.", increasingTemp);
+        System.out.println(" \n");
         return increasingTemp;
     }
 
