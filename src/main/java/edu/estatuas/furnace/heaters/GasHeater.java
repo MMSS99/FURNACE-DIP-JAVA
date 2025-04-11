@@ -13,10 +13,14 @@ public class GasHeater {
         this.MAXTEMP = temp;
     }
 
+    public double getMaxTemp() {
+        return MAXTEMP;
+    }
+
     public double heatUp(double currentTemp){
         double increasingTemp = currentTemp;
         System.out.println("The heating up process is starting at " + increasingTemp + "ºC");
-        while (increasingTemp > MAXTEMP){
+        while (increasingTemp < MAXTEMP){
             increasingTemp += (1d + Math.random()*2);
             System.out.println("The temperature has increased to => " + increasingTemp + "ºC");
         }
@@ -31,7 +35,7 @@ public class GasHeater {
         } else {possible = true;}
 
         System.out.println("The heating up process is starting at " + increasingTemp + "ºC");
-        while (increasingTemp > desiredTemp && possible){
+        while (increasingTemp < desiredTemp && possible){
             increasingTemp += (1d + Math.random()*2);
             System.out.println("The temperature has increased to => " + increasingTemp + "ºC");
         }
