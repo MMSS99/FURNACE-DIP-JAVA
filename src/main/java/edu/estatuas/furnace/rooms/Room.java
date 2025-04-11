@@ -24,4 +24,23 @@ public class Room {
     public void updateTemperature(double newTemperature){
         temperature = newTemperature;
     }
+
+    public void coolOff(){
+        double targetTemperature = ThreadLocalRandom.current().nextInt(0, 22);
+        double currentTemperature = getTemperature();
+
+        while (currentTemperature < targetTemperature){
+            currentTemperature -= 1*(Math.random()+1);
+            System.out.println("The temperature has dropped to " + currentTemperature + "ºC");
+        }
+    }
+
+    public void coolOff(double targetTemperature){
+        double currentTemperature = getTemperature();
+
+        while (currentTemperature < targetTemperature){
+            currentTemperature -= 1*(Math.random()+1);
+            System.out.println("The temperature has dropped to " + currentTemperature + "ºC");
+        }
+    }
 }
