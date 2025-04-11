@@ -1,5 +1,7 @@
 package edu.estatuas.furnace.heaters;
 
+import java.util.Locale;
+
 public class GasHeater {
 
     private final double MAXTEMP;
@@ -22,7 +24,7 @@ public class GasHeater {
         System.out.println("The heating up process is starting at " + increasingTemp + "ºC");
         while (increasingTemp < MAXTEMP){
             increasingTemp += Math.round(((1d + Math.random()*2)*10))/10d;
-            System.out.println("The temperature has increased to => " + increasingTemp + "ºC");
+            System.out.printf(Locale.US,"The temperature has increased to => %.1fºC%n", increasingTemp);
         }
         return increasingTemp;
     }
@@ -37,7 +39,7 @@ public class GasHeater {
         System.out.println("The heating up process is starting at " + increasingTemp + "ºC");
         while (increasingTemp < desiredTemp && possible){
             increasingTemp += Math.round(((1d + Math.random()*2)*10))/10d;
-            System.out.println("The temperature has increased to => " + increasingTemp + "ºC");
+            System.out.printf(Locale.US, "The temperature has increased to => %.1fºC%n", increasingTemp);
         }
         emissionWarning(currentTemp, desiredTemp);
         return increasingTemp;
@@ -45,7 +47,7 @@ public class GasHeater {
 
     private void emissionWarning(double startingTemp, double finalTemp){
         double calculatedEmissions = (finalTemp - startingTemp) * (1d+Math.random()*2);
-        System.out.print("This heater has emitted " + calculatedEmissions + " kg. of CO2.");
+        System.out.println("This heater has emitted " + calculatedEmissions + " kg. of CO2.");
     }
 
     private void blowUp(){
