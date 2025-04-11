@@ -26,6 +26,7 @@ public class GasHeater {
             increasingTemp += Math.round(((1d + Math.random()*2)*10))/10d;
             System.out.printf(Locale.US,"The temperature has increased to => %.1fºC%n", increasingTemp);
         }
+        emissionWarning(currentTemp, increasingTemp);
         return increasingTemp;
     }
 
@@ -34,20 +35,23 @@ public class GasHeater {
         double increasingTemp = currentTemp;
         if (desiredTemp > MAXTEMP) {
             System.out.println("This heater is not able to reach the desired temperature!");
-        } else {possible = true;}
+        } else {
+            possible = true;
+            System.out.println("The heating up process is starting at " + increasingTemp + "ºC");
+        }
 
-        System.out.println("The heating up process is starting at " + increasingTemp + "ºC");
         while (increasingTemp < desiredTemp && possible){
             increasingTemp += Math.round(((1d + Math.random()*2)*10))/10d;
             System.out.printf(Locale.US, "The temperature has increased to => %.1fºC%n", increasingTemp);
         }
-        emissionWarning(currentTemp, desiredTemp);
+        emissionWarning(currentTemp, increasingTemp);
         return increasingTemp;
     }
 
     private void emissionWarning(double startingTemp, double finalTemp){
         double calculatedEmissions = (finalTemp - startingTemp) * (1d+Math.random()*2);
-        System.out.println("This heater has emitted " + calculatedEmissions + " kg. of CO2.");
+        System.out.printf(Locale.US, "This heater has emitted %.1f kg. of CO2.", calculatedEmissions);
+        System.out.println(" \n");
     }
 
     private void blowUp(){
