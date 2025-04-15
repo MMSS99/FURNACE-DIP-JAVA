@@ -56,7 +56,7 @@ public class GasHeater implements Heater {
         System.out.println(" \n");
     }
 
-    private void blowUp(){
+    public void blowUp(){
         System.out.println("WARNING! The secret autodestruction method has been turned on!");
         int  i = 5;
         while (i > 0){
