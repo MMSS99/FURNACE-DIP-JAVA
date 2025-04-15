@@ -1,6 +1,6 @@
 package edu.estatuas.furnace.thermometers;
 
-public class MercuryThermo {
+public class MercuryThermo implements Thermometer{
     private double currentTemp = 0;
     private final double MAX_TEMP;
 
